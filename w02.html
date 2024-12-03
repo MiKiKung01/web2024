@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.7.4/dist/vuetify.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.7.4/dist/vuetify.min.js"></script>
+    <title>แบบทดสอบออนไลน์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Thai', sans-serif;
+            background-color: #f5f5f5;
+        }
+        #app {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .border-info {
+            border: 1px solid #3f51b5;
+            border-radius: 8px;
+        }
+        v-radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        v-radio {
+            display: inline-flex;
+            align-items: center;
+        }
+        .header {
+            background-color: #64b5f6; 
+        }
+    
+        .v-btn {
+            background-color: #1976D2;
+            color: white;
+        }
+
+        .pa-4 {
+            padding: 20px;
+        }
+    
+        .bg-light-blue {
+            background-color: #e3f2fd;
+        }
+    
+        .white--text {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <v-app>
+            <div class="header pa-4 bg-light-blue text-center white--text">
+                <h1>แบบทดสอบออนไลน์</h1>
+            </div>
+
+            <div v-if="page == 1" class="text-center pa-5">
+                <v-btn color="green" @click="page = 2">เริ่มทำแบบทดสอบ</v-btn>
+            </div>
+
+            <div v-if="page == 2">
+                <div v-for="(q, i) in qlist" :key="i" class="my-4 pa-4 border-info">
+                    <h3>ข้อที่ {{ i + 1 }}</h3>
+                    
+                    <div v-html="q.title" class="pa-2"></div>
+                
+                    <v-radio-group 
+                        v-model="answers[i]" 
+                        class="mt-3" 
+                        row
+                        style="display: flex; flex-wrap: wrap; justify-content: start;"
+                    >
+                        <v-radio
+                            v-for="(otxt, ov) in q.options"
+                            :key="ov"
+                            :label="otxt"
+                            :value="ov + 1"
+                            class="mr-4 mb-2"
+                            style="flex: 1 1 100%;"
+                        >
+                        </v-radio>
+                    </v-radio-group>
+                </div>
+                <div class="position-sticky bottom-0 pa-4 bg-primary">
+                    <v-btn color="green" v-if="validate()" @click="grading()"><v-icon>mdi-check</v-icon>ตรวจคำตอบ</v-btn>
+                    <div v-else>กรุณาตอบให้ครบ</div>
+                </div>
+            </div>
+
+            <div v-if="page == 3" class="text-center pa-5">
+                <h2>คุณได้คะแนน {{ score }} / {{ qlist.length }}</h2>
+                <v-btn color="green" @click="restartQuiz()">เริ่มใหม่</v-btn>
+            </div>
+        </v-app>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: "Hello",
+                    qlist: [], 
+                    answers: [],
+                    score: 0, 
+                    page: 1
+                };
+            },
+            mounted() {
+                this.load_data();
+            },
+            methods: {
+                
+                async load_data() {
+                    const res = await fetch("questions_2.json");
+                    this.qlist = await res.json();
+                },
+                
+                validate() {
+                    for (let i = 0; i < this.qlist.length; i++) {
+                        if (!this.answers[i]) return false;
+                    }
+                    return true;
+                },
+                
+                grading() {
+                    var n = 0;
+                    for (var a in this.qlist) {
+                        if (this.answers[a] == this.qlist[a].answer) {
+                            n++;
+                        }
+                    }
+                    this.score = n;
+                    this.page = 3;
+                    return n;
+                },
+                restartQuiz() {
+                    this.page = 1;
+                    this.answers = [];
+                    this.score = 0;
+                }
+            }
+        });
+
+        const vuetify = Vuetify.createVuetify();
+        app.use(vuetify).mount('#app');
+    </script>
+</body>
+</html>

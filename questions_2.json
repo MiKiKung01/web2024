@@ -1,0 +1,107 @@
+[
+    {
+        "title": "HTML ใช้สำหรับอะไร?",
+        "options": [
+        "ประมวลผลข้อมูล", 
+        "จัดรูปแบบเอกสาร", 
+        "สร้างโครงสร้างเว็บไซต์", 
+        "เชื่อมต่อกับฐานข้อมูล"
+    ],
+        "answer": 3
+    },
+    {
+        "title": "CSS ย่อมาจากอะไร?",
+        "options": ["Cascading Style Sheets", "Creative Styling Systems", "Content Style Syntax", "Computer Style Sheet"],
+        "answer": 1
+    },
+    {
+        "title": "JavaScript ใช้ทำอะไร?",
+        "options": ["เขียนเอกสาร", "เขียนโปรแกรมเชิงตรรกะ", "เพิ่มการโต้ตอบในเว็บไซต์", "จัดการข้อมูล"],
+        "answer": 3
+    },
+    {
+        "title": "หากต้องการจัดการกับขนาดของฟอนต์ใน CSS ให้ใช้คำสั่งใด?",
+        "options": ["font-style", "font-size", "text-align", "line-height"],
+        "answer": 2
+    },
+    {
+        "title": "HTML ย่อมาจากข้อใด?",
+        "options": ["Hot Typing Markup Language", "Home Typing Modern Language", "Hyper Text Markup Language", "Home Testing Mixed Language"],
+        "answer": 3
+    },
+    {
+        "title": "ส่วนใดใน HTML ใช้สำหรับเชื่อมต่อ CSS ภายนอก?",
+        "options": ["<script>", "<link>", "<style>", "<meta>"],
+        "answer": 2
+    },
+    {
+        "title": "ข้อใดเป็นตัวอย่างของ URL?",
+        "options": ["https://www.example.com", "<https://example>", "https://example_html", "http://www,example,com"],
+        "answer": 1
+    },
+    {
+        "title": "คำสั่ง CSS ที่ใช้กำหนดระยะห่างระหว่างเส้นขอบของกล่องกับเนื้อหาภายในกล่องคืออะไร?",
+        "options": ["padding", "margin", "border", "spacing"],
+        "answer": 1
+    },
+    {
+        "title": "คำสั่งใดใช้สร้างลิงก์ใน HTML?",
+        "options": ["<url>", "<href>", "<a>", "<link>"],
+        "answer": 3
+    },
+    {
+        "title": "ข้อใดเป็นหน่วยวัดขนาดที่สัมพันธ์กับขนาดตัวอักษร?",
+        "options": ["px", "%", "em", "cm"],
+        "answer": 3
+    },
+    {
+        "title": "Framework ใดที่นิยมใช้สำหรับการสร้างเว็บแบบ Responsive?",
+        "options": ["Django", "React.js", "Bootstrap", "Vue.js"],
+        "answer": 3
+    },
+    {
+        "title": "การเขียน JavaScript คำสั่งใดใช้สำหรับแสดงข้อความใน Console?",
+        "options": ["print()", "alert()", "write()", "console.log()"],
+        "answer": 4
+    },
+    {
+        "title": "API ย่อมาจากอะไร?",
+        "options": ["Application Programming Interface", "Automated Process Integration", "Advanced Programming Instructions", "Application Process Interaction"],
+        "answer": 1
+    },
+    {
+        "title": "Flexbox ใน CSS ใช้สำหรับ?",
+        "options": ["การจัดการฟอร์ม", "การกำหนดสีพื้นหลัง", "การเพิ่มเอฟเฟกต์การเคลื่อนไหว", "การจัดตำแหน่งและการจัดวางองค์ประกอบ"],
+        "answer": 4
+    },
+    {
+        "title": "คำสั่งใดใช้สำหรับสร้าง List แบบไม่เรียงลำดับ?",
+        "options": ["<li>", "<ul>", "<ol>", "<list>"],
+        "answer": 2
+    },
+    {
+        "title": "ข้อใดคือไวยากรณ์ที่ถูกต้องใน CSS?",
+        "options": ["background-color: red;", "background = red;", "bg-color: red;", "background-color = red"],
+        "answer": 1
+    },
+    {
+        "title": "การเขียนโค้ด HTML ที่ถูกต้องควรเริ่มต้นด้วยอะไร?",
+        "options": ["<!DOCTYPE html>", "<html>", "<head>", "<title>"],
+        "answer": 1
+    },
+    {
+        "title": "ส่วนใดใน HTML ใช้สำหรับใส่เนื้อหาหลัก?",
+        "options": ["<main>", "<header>", "<body>", "<footer>"],
+        "answer": 3
+    },
+    {
+        "title": "คำสั่ง CSS ใดใช้สำหรับซ่อนองค์ประกอบ?",
+        "options": ["display: none;", "visibility: hide;", "opacity: 0%;", "hide: true;"],
+        "answer": 1
+    },
+    {
+        "title": "ข้อใดคือตัวอย่างของ Selectors ใน CSS?",
+        "options": [".class", "#id", "tag", "ถูกทุกข้อ"],
+        "answer": 4
+    }
+]
