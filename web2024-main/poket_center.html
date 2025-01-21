@@ -13,12 +13,14 @@
             <a-asset-item id="dragapult" src="./model/pokemon_dragapult.glb"></a-asset-item>
             <a-asset-item id="pikachu" src="./model/pokemon_pikachu.glb"></a-asset-item>
             <video id="sampleVideo" src="./video/healing_pokemon.mp4" preload="auto" muted="true"></video>
+            <video src="./video/PC.mp4" id="sampleVideo2" preload="auto" muted="true"></video>
         </a-assets>
 
     <a-entity gltf-model="./model/Low Poly Snorlax.glb" scale="4.349 3.226 4.232" position="-12.20256 0.783 8.548" rotation="-5.426 -143.678 -0.065">
       </a-entity>
 
-      <a-entity gltf-model="./model/Low Poly Haunter.glb" position="9.84876 1.10829 8.17323" rotation="-11.625313663204404 140.1855837346585 1.8615398763800446" scale="2.22995 1.93079 2.25189"></a-entity>
+      <a-entity gltf-model="./model/Low Poly Haunter.glb" position="9.84876 1.10829 8.17323" rotation="-11.625313663204404 140.1855837346585 1.8615398763800446" scale="2.22995 1.93079 2.25189"
+      animation="property: position; to: 9.84876 1.40829 8.17323; dir: alternate; dur: 2000; loop: true; easing: easeInOutSine"></a-entity>
       <a-plane position="0 -0.05224 -0.37038" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" material="" geometry="" scale="11.41658 13.09816 1.312"></a-plane>
 
       <a-sky color="#ECECEC" material="" geometry=""></a-sky>
@@ -30,11 +32,16 @@
       <a-entity gltf-model="./model/pokemon_center_lady.glb" id="lady" scale="0.33401 0.27441 0.45132" position="0 0 -4.5087"></a-entity>
       
       <a-entity gltf-model="./model/pokemon_dragapult.glb" animation-mixer="" position="4.8085 1.00373 -2.13916" rotation="0 -73.87202148401217 0" scale="2 2 2">
+    
+      </a-entity>
+
+      <a-text value="Welcome to Pokemon Center" color="black" position="-4.04855 6.39916 6.09625" width="6" font="https://cdn.aframe.io/fonts/Exo2Bold.fnt" text="width: 13.79; color: #fffafa; alphaTest: 0.45; height: 1.58; letterSpacing: 0.76; tabSize: 7.67; whiteSpace: pre; wrapCount: 40.01; xOffset: 0.01; yOffset: -0.3"></a-text>
+      
+      <a-entity id="clickableEntity" gltf-model="./model/pokemon_pikachu.glb" animation-mixer="" position="-3.62921 -0.00525 0.2192" rotation="0 40.216480598027616 0" scale="2 2 2"></a-entity>
+
+
+    <a-entity id="invisibleBlock" geometry="width: 1.5; depth: 1.5" position="-3.46291 0.08225 2.51832" material="color: transparent; opacity: 0.1"  class="clickable" scale="0.57799 0.63355 0.60205">
     </a-entity>
-
-    <a-entity id="clickableEntity" gltf-model="./model/pokemon_pikachu.glb" animation-mixer="" position="-3.62921 -0.00525 0.2192" rotation="0 40.216480598027616 0" scale="2 2 2"></a-entity>
-
-
 
     <a-entity gltf-model="./model/Tree.glb" position="19.01609 -0.26622 0.67822" scale="0.05 0.03 0.04"></a-entity>
     <a-entity gltf-model="./model/Tree.glb" position="0.20292 -0.20537 -18.20416" scale="0.05 0.03 0.04"></a-entity>
@@ -64,15 +71,30 @@
 
     <a-entity gltf-model="./model/Sun.glb" position="11.54335 23.12854 -4.16292" scale="2.35 1.59 1.77"></a-entity>
 
-    <a-video id="videoScreen" visible="false" src="#sampleVideo" position="0 2 -4" width="2" height="1.25" muted="true">
+    <a-video id="videoScreen" visible="" src="#sampleVideo" position="0.00177 2.72883 -6.10678" width="2" height="1.25" muted="true" material="" geometry="" scale="2.30601 1.89168 1.32958">
     </a-video>
 
-    <a-camera position="-0.32 1.6 20.62" wasd-controls="1" rotation="6.188 3.094 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""><a-cursor></a-cursor></a-camera>
+    <a-camera id="player" position="-0.32 1.6 20.62" wasd-controls="1" rotation="6.188 3.094 0" look-controls="" aframe-injected="" data-aframe-inspector-original-camera=""><a-cursor></a-cursor></a-camera>
     
     <div class="a-loader-title" style="display: none;"></div><div class="a-loader-title" style="display: none;"></div>
     
+
+    <a-entity id="pc" geometry="width: 1.5; depth: 1.5" position="1.8079 0.64695 -3.17535" material="color: transparent; opacity: 0.1" scale="0.3595 0.52386 0.30669">
+    </a-entity>
+    <a-video id="videoScreen1" visible="" src="#sampleVideo2" position="1.79084 1.28849 -3.22715" width="2" height="1.25" muted="true" scale="0.29455 0.43626 0.59091" material="" geometry="">
+    </a-video>
+
+
     <a-sound src="sound/1-04. Corn Dog.mp3" autoplay="true" loop="true" preload="auto" position="0 2 -4" volume="0.5"></a-sound>
 
+
+    <a-box id="SoundBox" position="-7.79595 0.46909 17.36257" color="color: transparent" material="opacity: 0.0; transparent: true;"></a-box>
+    <audio id="clickSound" src="./sound/pikachu_cute.mp3"></audio>
+
+    <a-box id="SoundBox2" position="10.51495 0.41907 13.18473" material="opacity: 0.0; transparent: true;">
+    </a-box>
+
+    <audio id="clickSound2" src="./sound/eevee.mp3" preload="auto"></audio>
 
   </a-scene>
   </body>
@@ -93,6 +115,56 @@
             videoElement.currentTime = 0;
         });
 
+
+        const player = document.querySelector('#player');
+        const invisibleBlock = document.querySelector('#invisibleBlock');
+        let isSitting = false;
+
+        invisibleBlock.addEventListener('click', () => {
+            if (!isSitting) {
+                player.setAttribute('position', '1.46291 1.08225 0.51832'); 
+                player.setAttribute('wasd-controls', 'enabled: false');
+                player.setAttribute('look-controls', 'enabled: false'); 
+                isSitting = true;
+            }
+        });
+
+        document.body.addEventListener('click', () => {
+            if (isSitting) {
+                player.setAttribute('position', '-3.46291 1.08225 2.51832');
+                player.setAttribute('wasd-controls', 'enabled: true');
+                player.setAttribute('look-controls', 'enabled: true');
+                isSitting = false;
+            }
+        });
+
+    const PcModel = document.querySelector('#pc');
+    const videoPC = document.querySelector('#videoScreen1');
+    const ElementPC = document.querySelector('#sampleVideo2');
+
+      PcModel.addEventListener('click', () => {
+      videoPC.setAttribute('visible', true);
+      ElementPC.play();
+        });
+
+        ElementPC.addEventListener('ended', () => {
+          videoPC.setAttribute('visible', false);
+          ElementPC.pause();
+          ElementPC.currentTime = 0;
+        });
+
+    const box = document.querySelector('#SoundBox');
+    const sound = document.querySelector('#clickSound');
+    box.addEventListener('click', () => {
+        sound.play();
+      });
+
+      const box2 = document.querySelector('#SoundBox2');
+      const sound2 = document.querySelector('#clickSound2');
+  
+      box2.addEventListener('click', () => {
+          sound2.play();
+      });
   </script>
 
 </html>
